@@ -2,7 +2,6 @@
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
@@ -13,8 +12,8 @@ export class AuthService {
   private _expiresAt: number;
 
   auth0 = new auth0.WebAuth({
-    clientID: '6W21C7yp610w1Hcxjru5taMXbqNo0lKp',
-    domain: 'kratos-service.eu.auth0.com',
+    clientID: '4j0AlE99wZwVpD1sHnm68a9H1xcI5jrz',
+    domain: 'kratos-srv.eu.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/callback',
     scope: 'openid'
@@ -55,7 +54,7 @@ export class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
       } else if (err) {
-        alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+        alert(`Could not get a new token (${err.error}: ${err.errorDescription}).`);
         this.logout();
       }
     });

@@ -8,13 +8,21 @@ import { AuthService } from './../../service/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private serviceAuth: AuthService) { }
+  constructor( public serviceAuth: AuthService) { 
+
+    this.serviceAuth.handleAuthentication();
+
+  }
 
   ngOnInit() {
   }
 
   login() {
     this.serviceAuth.login();
+  }
+
+  logout(){
+    this.serviceAuth.logout();
   }
 
 }
