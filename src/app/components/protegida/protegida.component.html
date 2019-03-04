@@ -1,3 +1,13 @@
-<p>
-  protegida works!
-</p>
+<div class="container m-4">
+    <div class="card" style="width: 18rem;">
+
+        <img *ngIf=" profile.picture !== undefined" [src]="profile.picture" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">{{profile.name}}</p>
+            <p class="card-text">{{profile.nickname}}</p>
+            <p class="card-text">{{profile.gender}}</p>
+            <p class="card-text">{{profile.updated_at | date: 'dd/MM/yyyy'}}</p>
+
+        </div>
+    </div>
+</div>
